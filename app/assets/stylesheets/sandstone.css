@@ -1,0 +1,10 @@
+/* Sandstone
+ * Bootswatch
+ *= require_self
+ *= require sandstone/loader
+ *= require sandstone/bootswatch
+*/
+
+.main {
+    padding-top: 40px;
+}

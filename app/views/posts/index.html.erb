@@ -1,0 +1,15 @@
+<div class="main">
+  <div class="container">
+    <% @posts.each do |post|%>
+        <div class="jumbotron">
+          <h1 class="title"><%= post.title %></h1>
+          <p class="time"> <%=post.created_at.to_date%></p>
+          <p class="content"><a class="btn btn-primary btn-lg" href="<%= post_path(post)%>">Zobacz</a></p>
+
+        </div>
+    <% end %>
+
+  </div>
+
+</div>
+

@@ -1,0 +1,13 @@
+<div class="edit">
+  <div class="container">
+
+    <%= simple_form_for(@post) do |f| %>
+
+        <%= f.input :title %> <br>
+        <%= f.input :content %>
+        <%= f.button :submit %>
+
+    <% end %>
+  </div>
+
+</div>

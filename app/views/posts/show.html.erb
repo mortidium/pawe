@@ -1,0 +1,25 @@
+
+<div class="post">
+  <div class="contents">
+
+        <div class="jumbotron">
+          <div class="btn-group">
+            <a class="btn btn-primary" <%= link_to "Usuń", @post, method: :delete %></a>
+            <a class="btn btn-primary" <%= link_to "Edytuj", [:edit,@post]%>></a>
+          </div>
+
+          <h1 class="title"><%= @post.title %></h1>
+          <h3 class="content"><%= @post.content %></h3>
+          <p class="time"> <%= @post.created_at.to_date%></p>
+          <p class="wstecz"><a class="btn btn-primary btn-lg" href="../posts">Wstecz</a></p>
+
+
+        </div>
+
+  </div>
+
+</div>
+
+
+
+
