@@ -1,0 +1,8 @@
+<p>
+  <%= comment.commenter %>
+  <strong>powiedział/a:</strong>
+  <%= comment.body %>
+  <%= link_to ' Usuń komentarz', [comment.post, comment],
+              method: :delete,
+              data: { confirm: 'Czy na pewno usunąć komentarz?' } %>
+</p>

@@ -1,24 +1,40 @@
+  <div class="main">
 
-<div class="post">
-  <div class="contents">
-
-        <div class="jumbotron">
+        <div class="singlepost">
           <div class="btn-group">
-            <a class="btn btn-primary" <%= link_to "Usuń", @post, method: :delete %></a>
-            <a class="btn btn-primary" <%= link_to "Edytuj", [:edit,@post]%>></a>
+            <a class="btn btn-primary" <%= link_to "Usuń", @post , method: :delete,data: { confirm: 'Czy na pewno usunąć posta?'} %></a>
+            <a class="btn btn-primary" <%= link_to "Edytuj", [:edit,@post]%></a>
           </div>
 
-          <h1 class="title"><%= @post.title %></h1>
-          <h3 class="content"><%= @post.content %></h3>
-          <p class="time"> <%= @post.created_at.to_date%></p>
-          <p class="wstecz"><a class="btn btn-primary btn-lg" href="../posts">Wstecz</a></p>
-
+          <h2 class="title"><%= @post.title %></h2>
+          <p class="content"><%= @post.content %></p>
+          Dodano: <h3 class="time"> <%= @post.created_at.to_date%></h3>
 
         </div>
 
+    <div class="comments">
+      <h3>Komentarze</h3>
+      <%= render @post.comments %>
+
+    <h3>Dodaj komentarz:</h3>
+    <%= simple_form_for([@post, @post.comments.build]) do |f| %>
+        <p>
+          Podaj swój nick:
+          <%= f.text_field :commenter %>
+        </p>
+        <p>
+          Treść komentarza:
+          <%= f.text_area :body %>
+        </p>
+        <p>
+          <%= f.submit "Skomentuj"%>
+        </p>
+    <% end %>
+    </div>
+    <p class="wstecz"><a class="btn btn-primary btn-lg" href="../posts">Wstecz</a></p>
+
   </div>
 
-</div>
 
 
 

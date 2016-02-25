@@ -30,6 +30,7 @@ gem 'simple_form'
 
 # twitter bootstrap helpers gem, e.g., alerts etc...
 gem 'twitter-bootswatch-rails-helpers'
+gem 'bootstrap-wysihtml5-rails'
 
 
 # Use ActiveModel has_secure_password
