@@ -56,14 +56,5 @@
 
 <%= yield(:page_javascript) if content_for?(:page_javascript) %>
 
-<script type="text/javascript">
-  $(document).ready(function () {
-
-    $('textarea.wysihtml5').each(function (i, elem) {
-      $(elem).wysihtml5();
-
-    })
-  });
-</script>
 </body>
 </html>
