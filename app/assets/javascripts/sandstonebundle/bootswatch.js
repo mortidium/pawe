@@ -1,3 +1,0 @@
-// Sandstonebundle
-// Bootswatch
-// bootswatch.js

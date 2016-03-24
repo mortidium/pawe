@@ -7,31 +7,15 @@
           </div>
 
           <h2 class="title"><%= @post.title %></h2>
-          <p class="content"><%= @content %></p>
-          Dodano: <h3 class="time"> <%= @post.created_at.to_date%></h3>
-
+          <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= @post.created_at.to_date%></p>
+          <div class="content"><%= @content %></div>
         </div>
-
-    <div class="comments">
-      <h3>Komentarze</h3>
-      <%= render @post.comments %>
-
-    <h3>Dodaj komentarz:</h3>
-    <%= simple_form_for([@post, @post.comments.build]) do |f| %>
-        <p>
-          Podaj swój nick:
-          <%= f.text_field :commenter %>
-        </p>
-        <p>
-          Treść komentarza:
-          <%= f.text_area :body %>
-        </p>
-        <p>
-          <%= f.submit "Skomentuj"%>
-        </p>
-    <% end %>
+<div class="col-md-1"></div>
+    <div class="comments col-md-10">
+      <%- disqus_thread %>
     </div>
-    <p class="wstecz"><a class="btn btn-primary btn-lg" href="../posts">Wstecz</a></p>
+    </br>
+    <div class="wstecz"><a class="btn btn-primary btn-lg" href="../posts">Wróć do wszystkich postów</a></div>
 
   </div>
 

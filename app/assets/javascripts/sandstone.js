@@ -5,3 +5,4 @@
 //= require sandstone/loader
 //= require sandstone/bootswatch
 //= require bootstrap-wysihtml5
+//= require disqus_rails
