@@ -42,6 +42,8 @@ gem 'bootstrap-wysihtml5-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rails_12factor'
+
 gem 'pg'
 
 group :development, :test do
