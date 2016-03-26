@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   include  ActionView::Helpers::SanitizeHelper
 
+    before_action :require_editor, only: [:new, :edit]
+    
   def index
     @posts = Post.order(created_at: :desc).all
   end
