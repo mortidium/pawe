@@ -46,7 +46,7 @@ gem 'rails_12factor'
 
 gem 'pg'
 
-gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 
 gem 'disqus_rails'
 
