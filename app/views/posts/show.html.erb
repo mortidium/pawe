@@ -1,21 +1,27 @@
   <div class="main">
 
-        <div class="singlepost">
-          <div class="btn-group">
-            <a class="btn btn-primary" <%= link_to "Usuń", @post , method: :delete,data: { confirm: 'Czy na pewno usunąć posta?'} %></a>
-            <a class="btn btn-primary" <%= link_to "Edytuj", [:edit,@post]%></a>
-          </div>
-
-          <h2 class="title"><%= @post.title %></h2>
-          <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= @post.created_at.to_date%></p>
-          <div class="content"><%= @content %></div>
+        <div class="content">
+          
+            <div class="btn-group">
+                <a class="btn btn-primary" <%= link_to "Usuń", @post , method: :delete,data: { confirm: 'Czy na pewno usunąć posta?'} %></a>
+                <a class="btn btn-primary" <%= link_to "Edytuj", [:edit,@post]%></a>
+            </div>
+             
+            <h1 class="title"><%= @post.title %></h1>
+            <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= @post.created_at.to_date%></p>
+            <hr>
+            <%= image_tag @post.image.url %>
+            <hr>
+            <div><%= @content %></div>
         </div>
-<div class="col-md-1"></div>
-    <div class="comments col-md-10">
-      <%- disqus_thread %>
-    </div>
-    </br>
-    <div class="wstecz"><a class="btn btn-primary btn-lg" href="../posts">Wróć do wszystkich postów</a></div>
+      
+        <div class="col-md-1"></div>
+    
+        <div class="comments col-md-10">
+            <%- disqus_thread %>
+        </div>
+        <br>
+    <div class="wstecz"><a class="btn btn-primary btn-lg" href="../posts"><span class="glyphicon glyphicon-chevron-left"></span> Wróć do wszystkich postów</a></div>
 
   </div>
 

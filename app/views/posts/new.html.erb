@@ -2,10 +2,10 @@
    <div class="create">
     <%= simple_form_for(@post) do |f| %>
 
-      <%= f.input :title, label: "Tytuł" %> <br>
-      <%= f.input :content, as: :wysihtml5, label: "Treść" %>
-      <%= f.button :submit  %>
-
+      <%= f.input :title, label: "Tytuł:" %> <br>
+      <%= f.input :content, as: :wysihtml5, label: "Treść:" %>
+      <%= f.input :image, as: :file, label: "Obraz:" %>
+       <%= f.button :submit %>
         <% end %>
   </div>
 

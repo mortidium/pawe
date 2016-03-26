@@ -5,6 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Post.create(title: "Pierwszy post", content: "To jest randomowy post nr 1")
-Post.create(title: "Drugi post", content: "To jest randomowy post nr 2")
-Comment.create(post: 1, username: "Marta", content: "To super")
+Post.create(title: "Pierwszy post", content: "To jest randomowy post nr 1", shorten: "czytodziala", photo: "http://placehold.it/900x300")
+Post.create(title: "Drugi post", content: "To jest randomowy post nr 2", shorten: "nomnomnom", photo: "http://placehold.it/900x300")

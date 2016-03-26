@@ -1,15 +1,25 @@
 <div class="main">
     <div class="row">
 
-    <% @posts.each do |post|%>
+      <h1 class="page-header">
+        Page Heading
+        <small>Secondary Text</small>
+      </h1>
+
+
+      <% @posts.each do |post|%>
           <div class="col-md-6">
             <div class="post">
-              <h2 class="title"><%= post.title %></h2>
-              <p class="times"><span class="glyphicon glyphicon-time"></span> <%=post.created_at.to_date%></p>
-              <p class="content"><a class="btn btn-primary btn-lg" href="<%= post_path(post)%>">Zobacz</a></p>
+              <h1><%= post.title %></h1>
+              <p><span class="glyphicon glyphicon-time"></span> Utworzony:  <%=post.created_at.to_date%></p>
+              <hr>
+              <img class="img-responsive" src="<%= post.image.url %>" alt="">
+              <hr>
+              <p><a class="btn btn-primary btn-lg" href="<%= post_path(post)%>">Zobacz <span class="glyphicon glyphicon-chevron-right"></span></a></p>
             </div>
           </div>
 
     <% end %>
+
     </div>
   </div>

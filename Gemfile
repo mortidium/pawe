@@ -46,6 +46,8 @@ gem 'rails_12factor'
 
 gem 'pg'
 
+gem 'paperclip', github: 'thoughtbot/paperclip'
+
 gem 'disqus_rails'
 
 group :development, :test do
