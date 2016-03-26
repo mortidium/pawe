@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+      @post.image.destroy
     @post.destroy
     redirect_to '/posts'
   end
