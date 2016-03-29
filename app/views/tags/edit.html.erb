@@ -1,2 +1,11 @@
-<h1>Tags#edit</h1>
-<p>Find me in app/views/tags/edit.html.erb</p>
+<div class="main">
+  <div class="edit">
+    <%= simple_form_for(@tag) do |f| %>
+
+        <%= f.input :title, label: "Tytuł opowiadania:" %> <br>
+        <%= f.input :image, label: "Link do obrazu:" %>
+        <%= f.button :submit, 'Aktualizuj opowiadanie' %>
+    <% end %>
+  </div>
+
+</div>

@@ -1,2 +1,13 @@
-<h1>Parts#edit</h1>
-<p>Find me in app/views/parts/edit.html.erb</p>
+<div class="edit">
+  <div class="main">
+
+    <%= simple_form_for(@part) do |f| %>
+      <%= f.association :tag, as: :radio_buttons, label: "Opowiadanie" %>
+      <%= f.association :post, as: :radio_buttons, label: "Rozdział" %>
+        <%= f.button :submit, 'przypisz' %>
+    <% end %>
+
+
+  </div>
+
+</div>
