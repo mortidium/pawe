@@ -32,6 +32,6 @@ class PartsController < ApplicationController
 
   private
   def part_params
-    params.require(:part).permit(:post, :tag)
+    params.require(:part).permit(:post_id, :tag_id)
   end
 end
