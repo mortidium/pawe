@@ -9,7 +9,12 @@
 .main {
     padding-top: 20px;
     padding-bottom: 20px;
-    
+}
+.contact{
+    padding-top: 20px;
+}
+.face{
+    width: 100px;
 }
 .create{
     padding-top:30px;
@@ -18,12 +23,19 @@
     padding-top:30px;
 }
 .post{
-    padding: 20px 30px;
+    padding: 20px;
     margin-bottom: 10px;
     background-color: rgb(248,245,240);
     border-radius: 6px;
 }
-
+.dane{
+    padding:20px;
+    margin-top: 20px;
+    background-color: rgb(248,245,240);
+    border-radius: 6px;
+    border: 1px solid black;
+    
+}
 .title{
     padding: 20px;
     font-size: 40px;
@@ -36,4 +48,14 @@
 .content{
     background-color: rgb(248,245,240);
     padding: 30px;
+}
+.content img{
+    width: -moz-available;
+}
+.footer{
+    float: right;
+    padding-right: 100px;
+    padding-bottom: 30px;
+    color: #444;
+    font-size: 12px;
 }

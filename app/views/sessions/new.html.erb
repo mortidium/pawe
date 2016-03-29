@@ -1,18 +1,17 @@
 <div class="login">
 	<div class="container">
-		<div class="form">
-<br><br>
-      <h1>Zaloguj</h1>
+        <br><br>
+        <div class="col-md-4 col-xs-2"></div>
+		<div class="dane col-md-4 col-xs-8"> 
+        <div class="form">
+            
+      <h2>Zaloguj się</h2>
 			<%= form_for(:session, url: login_path) do |f| %> 
   <%= f.email_field :email, :placeholder => "Email" %> <br>
   <%= f.password_field :password, :placeholder => "Password" %><br> 
   <%= f.submit "Log in", class: "btn-submit" %>
 <% end %>
-
-
-
-
-		
+           </div> 
     </div>
 	</div>
 </div>

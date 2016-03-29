@@ -3,16 +3,16 @@
         <div class="content">
           
             <% if current_user && current_user.editor? %> 
-        <div class="btn-group">
+            <div class="btn-group">
                 <a class="btn btn-primary" <%= link_to "Usuń", @post , method: :delete,data: { confirm: 'Czy na pewno usunąć posta?'} %></a>
                 <a class="btn btn-primary" <%= link_to "Edytuj", [:edit,@post]%></a>
             </div>
-<% end %>
+            <% end %>
              
             <h1 class="title"><%= @post.title %></h1>
             <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= @post.created_at.to_date%></p>
             <hr>
-            <%= image_tag @post.image.url %>
+            <img src="<%= @post.image.url %>">
             <hr>
             <div><%= @content %></div>
         </div>

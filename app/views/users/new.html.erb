@@ -1,8 +1,11 @@
 <div class="login">
   <div class="container">
-    <div class="form">
-            <br><br>
-      <h1>Załóż konto</h1>
+     <br><br>
+        <div class="col-md-4 col-xs-2"></div>
+		<div class="dane col-md-4 col-xs-8"> 
+        <div class="form">
+            
+      <h2>Załóż konto</h2>
 
       <%= form_for(@user) do |f| %>
           <%= f.text_field :first_name, :placeholder => "Imię" %><br>
@@ -15,4 +18,5 @@
 
     </div>
   </div>
+</div>
 </div>

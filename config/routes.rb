@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+    get 'contact' => 'posts#contact'
   get 'signup'  => 'users#new'
   resources :users
 
