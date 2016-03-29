@@ -4,8 +4,10 @@
 
       <%= f.input :title, label: "Tytuł:" %> <br>
       <%= f.input :content, as: :wysihtml5, label: "Treść:" %>
-      <%= f.input :image, as: :file, label: "Obraz:" %>
-       <%= f.button :submit %>
+       <%= f.input :description, label: "Krótki opis:" %>
+       <%= f.input :image, as: :string, label: "Link do obrazu" %>
+       
+       <%= f.button :submit, 'Dodaj rozdział' %>
         <% end %>
   </div>
 

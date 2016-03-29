@@ -5,11 +5,14 @@ before_action :require_user, only: [:index, :show]
     <%= simple_form_for(@post) do |f| %>
 
       <%= f.input :title, label: "Tytuł:" %> <br>
-      <%= f.input :content, as: :wysihtml5, label: "Treść:" %>
-      <%= f.input :image, as: :file, label: "Obraz:" %>
-      <%= f.button :submit %>
+      <%= f.input :content, as: :wysihtml5, label: "Treść:" %><br>
+       <%= f.input :description, label: "Krótki opis:" %><br>
+       <%= f.input :image, label: "Link do obrazu" %><br>
+       <%= f.input :tag_id %><br>
+       <%= f.button :submit, 'Dodaj rozdział' %>
+        <% end %>
       
-    <% end %>
+    
   </div>
 
 </div>

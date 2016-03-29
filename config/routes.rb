@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
 
   
+    resources 'parts'
+
     get '/login' => 'sessions#new'
     post 'login' => 'sessions#create'
     delete 'logout' => 'sessions#destroy'
-  get 'posts/home'
   resources 'posts'
-  resources :posts do
-    resources :comments
-  end
-
+  resources 'tags'
     get 'contact' => 'posts#contact'
   get 'signup'  => 'users#new'
   resources :users

@@ -11,17 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326205949) do
+ActiveRecord::Schema.define(version: 20160329160123) do
+
+  create_table "parts", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "parts", ["post_id"], name: "index_parts_on_post_id"
+  add_index "parts", ["tag_id"], name: "index_parts_on_tag_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
+    t.string   "image"
+    t.string   "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "title"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,11 @@
+<div class="main">
+   <div class="create">
+    <%= simple_form_for(@part) do |f| %>
+
+      <%= f.association :tag %>
+  <%= f.association :post %>
+  <%= f.button :submit %>
+        <% end %>
+  </div>
+
+</div>
