@@ -1,23 +1,24 @@
 <div class="main">
-    <div class="row">
+  <div class="row">
 
-      <h1 class="page-header">
-        Wszystkie opowiadania
-      </h1>
+    <h1 class="page-header">
+      Wszystkie opowiadania
+    </h1>
 
 
-      <% @tags.each do |tag|%>
-          <div class="col-md-6">
-            <div class="post">
-              <h1><%= tag.title %></h1>
-              <p><span class="glyphicon glyphicon-time"></span> Utworzony:  <%=tag.created_at.to_date%></p>
-              <hr>
-                
-              <p><a class="btn btn-primary btn-lg" href="<%= tag_path(tag)%>">Zobacz <span class="glyphicon glyphicon-chevron-right"></span></a></p>
-            </div>
+    <% @tags.each do |tag| %>
+        <div class="col-md-6">
+          <div class="post">
+            <h1><%= tag.title %></h1>
+            <p><span class="glyphicon glyphicon-time"></span> Utworzony:  <%= tag.created_at.to_date %></p>
+            <hr>
+
+            <p><a class="btn btn-primary btn-lg" href="<%= tag_path(tag) %>">Zobacz
+              <span class="glyphicon glyphicon-chevron-right"></span></a></p>
           </div>
+        </div>
 
     <% end %>
 
-    </div>
   </div>
+</div>

@@ -1,14 +1,14 @@
- <div class="main">
-   <div class="create">
+<div class="main">
+  <div class="create">
     <%= simple_form_for(@post) do |f| %>
 
-      <%= f.input :title, label: "Tytuł:" %> <br>
-      <%= f.input :content, as: :wysihtml5, label: "Treść:" %>
-       <%= f.input :description, label: "Krótki opis:" %>
-       <%= f.input :image, as: :string, label: "Link do obrazu" %>
-       
-       <%= f.button :submit, 'Dodaj rozdział' %>
-        <% end %>
+        <%= f.input :title, label: "Tytuł:" %> <br>
+        <%= f.input :content, as: :wysihtml5, label: "Treść:" %>
+        <%= f.input :description, label: "Krótki opis:" %>
+        <%= f.input :image, as: :string, label: "Link do obrazu" %>
+
+        <%= f.button :submit, 'Dodaj rozdział' %>
+    <% end %>
   </div>
 
 </div>

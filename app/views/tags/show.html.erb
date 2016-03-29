@@ -1,31 +1,33 @@
 <div class="main">
 
-        <div class="content">
-          
-            <% if current_user && current_user.editor? %> 
-            <div class="btn-group">
-                <a class="btn btn-primary" <%= link_to "Usuń opowiadanie", @tag , method: :delete,data: { confirm: 'Czy na pewno usunąć opowiadanie?'} %></a>
-                <a class="btn btn-primary" <%= link_to "Nowy rozdział", new_post_path%></a>
-                <a class="btn btn-primary" <%= link_to "Edytuj", [:edit,@tag]%></a>
-            </div>
-            <% end %>
-             
-            <h1 class="title"><%= @tag.title %></h1>
-            <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= @tag.created_at.to_date%></p>
-            
-            <% @posts.each do |post|%>
-          
-            <div class="post">
-              <h2><%= post.title %></h2>
-              <div><%= post.content %></div>
-          </div>
+  <div class="content">
+
+    <% if current_user && current_user.editor? %>
+        <div class="btn-group">
+          <a class="btn btn-primary" <%= link_to "Usuń opowiadanie", @tag, method: :delete, data: {confirm: 'Czy na pewno usunąć opowiadanie?'} %></a>
+          <a class="btn btn-primary" <%= link_to "Nowy rozdział", new_post_path %></a>
+          <a class="btn btn-primary" <%= link_to "Edytuj", [:edit, @tag] %></a>
+        </div>
+    <% end %>
+
+    <h1 class="title"><%= @tag.title %></h1>
+    <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= @tag.created_at.to_date %></p>
+
+    <% @posts.each do |post| %>
+
+        <div class="post">
+          <h2><%= post.title %></h2>
+          <div><%= post.content %></div>
+        </div>
 
     <% end %>
-            
-            
-        </div>
-      
-        <br>
-    <div class="wstecz"><a class="btn btn-primary btn-lg" href="../tags"><span class="glyphicon glyphicon-chevron-left"></span> Wróć do wszystkich opowiadań</a></div>
+
 
   </div>
+
+  <br>
+  <div class="wstecz">
+    <a class="btn btn-primary btn-lg" href="../tags"><span class="glyphicon glyphicon-chevron-left"></span> Wróć do
+      wszystkich opowiadań</a></div>
+
+</div>

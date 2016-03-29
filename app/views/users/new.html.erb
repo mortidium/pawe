@@ -1,22 +1,22 @@
 <div class="login">
   <div class="container">
-     <br><br>
-        <div class="col-md-4 col-xs-2"></div>
-		<div class="dane col-md-4 col-xs-8"> 
-        <div class="form">
-            
-      <h2>Załóż konto</h2>
+    <br><br>
+    <div class="col-md-4 col-xs-2"></div>
+    <div class="dane col-md-4 col-xs-8">
+      <div class="form">
 
-      <%= form_for(@user) do |f| %>
-          <%= f.text_field :first_name, :placeholder => "Imię" %><br>
-          <%= f.text_field :last_name, :placeholder => "Nazwisko" %> <br>
-          <%= f.email_field :email, :placeholder => "Email" %><br>
-          <%= f.password_field :password, :placeholder => "Hasło" %><br>
-          <%= f.submit "Utwórz konto", class: "btn-submit" %>
-      <% end %>
+        <h2>Załóż konto</h2>
+
+        <%= form_for(@user) do |f| %>
+            <%= f.text_field :first_name, :placeholder => "Imię" %><br>
+            <%= f.text_field :last_name, :placeholder => "Nazwisko" %> <br>
+            <%= f.email_field :email, :placeholder => "Email" %><br>
+            <%= f.password_field :password, :placeholder => "Hasło" %><br>
+            <%= f.submit "Utwórz konto", class: "btn-submit" %>
+        <% end %>
 
 
+      </div>
     </div>
   </div>
-</div>
 </div>

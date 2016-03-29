@@ -1,14 +1,14 @@
 class TagsController < ApplicationController
   def index
-      @tags=Tag.all
+    @tags=Tag.all
   end
 
   def show
-      @tag=Tag.find(params[:id])
-      @posts = @tag.posts
+    @tag=Tag.find(params[:id])
+    @posts = @tag.posts
   end
 
- 
+
   def destroy
     @tag = Tag.find(params[:id])
     @tag.destroy
@@ -35,7 +35,7 @@ class TagsController < ApplicationController
   def create
     @tag = Tag.new(tag_params)
     if @tag.save
-       redirect_to '/tags'
+      redirect_to '/tags'
     else
       render 'new'
     end
@@ -43,15 +43,15 @@ class TagsController < ApplicationController
   end
 
 
-private
+  private
 
-    def tag_params 
-        params.require(:tag).permit(:title)
-    end
-    
-    def strippedtags(content)
-      tagi = %w(a acronym b strong i em li ul ol h1 h2 h3 h4 h5 h6 blockquote u img br cite sub sup ins p)
-      sanitize(content, tags: tagi, attributes: %w(href title))
-    end
-    
+  def tag_params
+    params.require(:tag).permit(:title)
+  end
+
+  def strippedtags(content)
+    tagi = %w(a acronym b strong i em li ul ol h1 h2 h3 h4 h5 h6 blockquote u img br cite sub sup ins p)
+    sanitize(content, tags: tagi, attributes: %w(href title))
+  end
+
 end

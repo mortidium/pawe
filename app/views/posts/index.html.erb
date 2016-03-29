@@ -1,23 +1,24 @@
 <div class="main">
-    <div class="row">
+  <div class="row">
 
-      <h1 class="page-header">
-        Najnowsze wpisy
-      </h1>
-        
-      <% @posts.each do |post|%>
-          <div class="col-md-6">
-            <div class="post">
-              <h1><%= post.title %></h1>
-              <p><span class="glyphicon glyphicon-time"></span> Utworzony:  <%=post.created_at.to_date%></p>
-              <hr>
-              <img class="img-responsive" src="<%= post.image.url %>" alt="">
-              <hr>
-              <p><a class="btn btn-primary btn-lg" href="<%= post_path(post)%>">Zobacz <span class="glyphicon glyphicon-chevron-right"></span></a></p>
-            </div>
+    <h1 class="page-header">
+      Najnowsze wpisy
+    </h1>
+
+    <% @posts.each do |post| %>
+        <div class="col-md-6">
+          <div class="post">
+            <h1><%= post.title %></h1>
+            <p><span class="glyphicon glyphicon-time"></span> Utworzony:  <%= post.created_at.to_date %></p>
+            <hr>
+            <img class="img-responsive" src="<%= post.image.url %>" alt="">
+            <hr>
+            <p><a class="btn btn-primary btn-lg" href="<%= post_path(post) %>">Zobacz
+              <span class="glyphicon glyphicon-chevron-right"></span></a></p>
           </div>
+        </div>
 
     <% end %>
 
-    </div>
   </div>
+</div>
