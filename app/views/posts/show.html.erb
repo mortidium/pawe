@@ -3,15 +3,23 @@
   <div class="content">
 
     <% if current_user && current_user.editor? %>
-        <div class="btn-group">
+      <% if @post.tags.count == 0 %>
+      <div class="alert alert-dismissible alert-danger">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong><br>Pamiętaj, żeby dodać rozdział do opowiadania!</strong> <a href=../../parts/new class="alert-link">Przypisz teraz klikając tu: <span class="glyphicon glyphicon-link"></span></a><br><br>
+</div>
+      <% end %>   
+      <div class="btn-group">
             <a class="btn btn-danger" <%= link_to "Usuń rozdział", @post, method: :delete, data: {confirm: 'Czy na pewno usunąć rozdział?'} %></a>
             <a class="btn btn-info" <%= link_to "Edytuj rozdział", [:edit, @post] %></a>
-        </div>
+ 
+        <% if @post.tags.count == 0 %>
+            <a class="btn btn-success" href="../../parts/new">Przypisz do opowiadania</a>
+        <% end %>    
+      </div>
     <% end %>
     <h1 class="title"><%= @post.title %></h1>
     <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= @post.created_at.to_date %></p>
-    <hr>
-    <img src="<%= @post.image.url %>">
     <hr>
     <div><%= @content %></div>
   </div>

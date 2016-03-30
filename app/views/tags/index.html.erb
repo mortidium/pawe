@@ -11,6 +11,7 @@
           <div class="post">
             <h1><%= tag.title %></h1>
             <p><span class="glyphicon glyphicon-time"></span> Utworzony:  <%= tag.created_at.to_date %></p>
+              <img class="tag_img" src="<%= tag.image %>">
             <hr>
 
             <p><a class="btn btn-success btn-lg" href="<%= tag_path(tag) %>">Zobacz

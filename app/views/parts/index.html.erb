@@ -2,21 +2,50 @@
   <div class="row">
 
     <h1 class="page-header">
-      Rozdziały
+      Rozdziały <a class="btn btn-success " href="parts/new">Przypisz rozdział do opowiadania</a>
     </h1>
-
-    <% @parts.each do |part| %>
-        <div class="col-md-6">
+    <ul class="nav nav-tabs">
+  <li class="active"><a href="#bytags" data-toggle="tab">najnowsze</a></li>
+  <li><a href="#byparts" data-toggle="tab">Szczegóły</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="bytags">
+     <% @parts.each do |part| %>
+        <div class="col-md-4 col-lg-3 col-sm-6">
           <div class="post">
-            <h1><%= part.id %></h1>
-              <%= part.tag.id %>
-              <%= part.post.id %>
+            <h3>Rozdział: <%= part.post.title %> <br> ( <%= part.tag.title %> )</h3>
+            <p><span class="glyphicon glyphicon-time"></span> <%= part.created_at.to_date %></p>
+              <a class="btn btn-danger " <%= link_to "Odłącz", part, method: :delete, data: {confirm: 'Czy na pewno odłączyć ten rozdział od opowiadania?'} %></a>
+            <a class="btn btn-info" <%= link_to "Edytuj", [:edit, part] %></a>
+              <br>
+              <%= part.post.description %>
+
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="byparts">
+      <% @parts.each do |part| %>
+        <div class="col-md-4 col-lg-3 col-sm-6">
+          <div class="post">
+              <h3>Id = <%= part.id %></h3>
+              <b><%= part.tag.title %></b> ( <%= part.tag.id %> ) -
+              <%= part.post.title %>
+              ( <%= part.post.id %> )
             <p> <%= part.created_at.to_date %></p>
 
           </div>
         </div>
 
     <% end %>
+  </div>
+
+</div>  
+      
+      
+      
+    
 
   </div>
 </div>

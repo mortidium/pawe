@@ -1,13 +1,15 @@
 <div class="edit">
   <div class="main">
-
+      <div class="przypis">
     <%= simple_form_for(@part) do |f| %>
-      <%= f.association :tag, as: :radio_buttons, label: "Opowiadanie" %>
-      <%= f.association :post, as: :radio_buttons, label: "Rozdział" %>
-        <%= f.button :submit, 'przypisz' %>
+       <div class="col-md-5">
+           <%= f.association :tag, label: "Opowiadanie", as: :radio_buttons %>
+         </div>
+          <div class="col-md-5">
+              <%= f.association :post, label: "Rozdział", as: :radio_buttons %>
+         </div>
+          <%= f.button :submit, 'Przypisz' %>
     <% end %>
-
-
   </div>
-
+</div>
 </div>

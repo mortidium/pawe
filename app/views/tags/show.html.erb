@@ -5,8 +5,10 @@
     <% if current_user && current_user.editor? %>
         <div class="btn-group">
           <a class="btn btn-danger" <%= link_to "Usuń opowiadanie", @tag, method: :delete, data: {confirm: 'Czy na pewno usunąć opowiadanie?'} %></a>
-          <a class="btn btn-success" <%= link_to "Nowy rozdział", new_post_path %></a>
             <a class="btn btn-info" <%= link_to "Edytuj opowiadanie", [:edit, @tag] %></a>
+          <a class="btn btn-success" <%= link_to "Nowy rozdział", new_post_path %></a>
+            <a class="btn btn-success" <%= link_to "Przypisz istniejący rozdział", new_part_path %></a>
+            
         </div>
     <% end %>
 

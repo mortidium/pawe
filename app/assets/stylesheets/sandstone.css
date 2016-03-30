@@ -11,6 +11,10 @@
     padding-bottom: 20px;
 }
 
+.tag_img {
+    width: -moz-available;
+}
+
 .contact {
     padding-top: 20px;
 }
@@ -41,6 +45,10 @@
     border-radius: 6px;
     border: 1px solid black;
 
+}
+.przypis {
+    padding: 20px;
+    margin-top: 20px;
 }
 
 .title {

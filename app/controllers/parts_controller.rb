@@ -3,9 +3,13 @@ class PartsController < ApplicationController
     before_action :require_editor, only: [:new, :edit, :show, :index]
     
   def index
-    @parts = Part.all
+    @parts = Part.order(created_at: :desc).all
   end
 
+    def tags
+        @tags = Part.tag.all
+    end
+    
   def new
     @part = Part.new
   end
@@ -32,7 +36,7 @@ class PartsController < ApplicationController
   def create
     @part = Part.new(part_params)
     if @part.save
-      redirect_to '/parts'
+      redirect_to '/tags'
     else
       render 'new'
     end
