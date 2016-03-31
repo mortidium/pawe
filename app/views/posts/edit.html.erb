@@ -8,7 +8,6 @@ before_action :require_user, only: [:index, :show]
         <%= f.input :content, as: :wysihtml5, label: "Treść:" %><br>
         <%= f.input :description, label: "Krótki opis:" %><br>
         <%= f.input :image, label: "Link do obrazu" %><br>
-        <%= f.input :tag_id %><br>
         <%= f.button :submit, 'Dodaj rozdział' %>
     <% end %>
   

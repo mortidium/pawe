@@ -50,9 +50,4 @@ class TagsController < ApplicationController
     params.require(:tag).permit(:title)
   end
 
-  def strippedtags(content)
-    tagi = %w(a acronym b strong i em li ul ol h1 h2 h3 h4 h5 h6 blockquote u img br cite sub sup ins p)
-    sanitize(content, tags: tagi, attributes: %w(href title))
-  end
-
 end
