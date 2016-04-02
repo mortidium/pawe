@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   before_action :require_editor, only: [:new, :edit]
 
   def index
-    @posts = Post.order(created_at: :desc).all
+    @posts = Post.order(created_at: :desc).paginate(:page => params[:page], :per_page => 6).all
+      
   end
 
   def show

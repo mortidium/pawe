@@ -48,6 +48,9 @@ gem 'pg'
 
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 
+gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
+
 gem 'disqus_rails'
 
 group :development, :test do

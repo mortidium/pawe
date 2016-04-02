@@ -20,6 +20,11 @@
         </div>
 
     <% end %>
+      </div>
+    <div class= "pag">
+      <%= will_paginate @tags, :previous_label => '< Poprzednia strona', :next_label => 'Następna strona >',renderer: BootstrapPagination::Rails %>
+      
+      </div> 
+      
 
-  </div>
 </div>
