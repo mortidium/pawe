@@ -33,6 +33,12 @@ body {
     width: 50%;
     margin: 0 auto;
 }
+.userzy{
+    width:100%;
+}
+.userzy tr td{
+    padding:5px;
+}
 .contact {
     padding-top: 20px;
 }

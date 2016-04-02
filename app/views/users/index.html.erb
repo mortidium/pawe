@@ -1,0 +1,60 @@
+<div class="main">
+  <div class="row">
+
+    <h1 class="page-header">
+      Użytkownicy
+    </h1>
+
+      <table class="userzy table table-striped table-hover ">
+          <thead>
+    <tr>
+        <th><h3>Imię i nazwisko</h3></th>
+      <th><h3>Email</h3></th>
+      <th><h3>Rola</h3></th>
+    </tr>
+  </thead>
+          <tbody>
+              
+              <% co=0 %>
+          <% @users.each do |user| %>
+          
+          <% if co=0 %>
+              <tr>
+	           <td><h4>
+             <%= user.first_name %> <%= user.last_name %>
+          </h4></td>
+	           <td><h4><%= user.email %></h4></td>
+                  <td><% if user.editor? %>
+            <h4>Autor</h4>
+        <% else %>
+            <h4>Użytkownik</h4>
+        <% end %></td>
+              </tr>
+          <% co=1 %>
+            <% else %>
+          
+           <tr>
+	           <td><h4>
+             <%= user.first_name %> <%= user.last_name %>
+          </h4></td>
+	           <td><h4><%= user.email %></h4></td>
+               <td><% if user.editor? %>
+            <h4>Autor</h4>
+           
+        <% else %>
+            <h4>Użytkownik</h4>
+        <% end %></td>
+              </tr>
+          <% co=0 %>
+            <% end %>
+    <% end %>
+          </tbody>
+          
+</table>
+      
+      
+      </div>
+      
+ </div>
+    
+</div>
