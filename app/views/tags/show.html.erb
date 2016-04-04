@@ -31,6 +31,8 @@
   </tbody>
 </table>   
       
+       <%= will_paginate @posts, :previous_label => '< Poprzednie rozdziały', :next_label => 'Następne rozdziały >', renderer: BootstrapPagination::Rails %>
+      
       <br>
       
       
@@ -45,15 +47,17 @@
             <a class="btn btn-info" <%= link_to "Edytuj rozdział", [:edit, post] %></a>
         </div>
     <% end %>
-            
-            
-            <div>
-    
-                <%= strippedtags(post.content) %></div>
-        </div>
+          
+      <div>
+      <%= strippedtags(post.content) %></div>
+    </div>
 
-    <% end %>
+   <% end %>
 
+      <div>
+      <%= will_paginate @posts, :previous_label => '< Poprzednia strona', :next_label => 'Następna strona >',renderer: BootstrapPagination::Rails %>
+      
+      </div> 
 
   </div>
 
