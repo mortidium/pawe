@@ -32,7 +32,7 @@
   <br>
   <div class="wstecz">
       <% @post.tags.each do |tag| %>
-      <a class="btn btn-success btn-lg" <%= link_to "Pokaż całe opowiadanie", tag_path(tag) %></a>
+<a class="btn btn-success btn-lg" href="tag_path(tag)">Pokaż całe opowiadanie "<%= tag.title%>" > </a>
     <% end %>
     </div>
 
