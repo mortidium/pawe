@@ -1,0 +1,2 @@
+class LiketagsController < ApplicationController
+end

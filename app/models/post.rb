@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
     has_many :parts, :dependent => :destroy
-  has_many :tags, through: :parts
-
+    has_many :tags, through: :parts
+    has_many :likeposts, :dependent => :destroy
     
 #    def stripped_content
 #        strippedtags(self.content)

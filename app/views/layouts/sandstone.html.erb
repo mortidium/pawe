@@ -76,6 +76,20 @@
 
 <div class="container theme-showcase main">
 
+    <br><br>
+    <% flash.each do |name, msg| -%>
+      <% if flash[:notice] %>
+            <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= content_tag :div, msg %>
+          <% else %>
+            <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= content_tag :div, msg, class: name %>
+          <% end %>
+          </div>
+       <% end %>
+    
   <%= yield %>
 
 

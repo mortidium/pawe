@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     @posts = Post.order(created_at: :desc).paginate(:page => params[:page], :per_page => 6).all
       
   end
-
+    
   def show
     @post = Post.find(params[:id])
   end
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to '/posts'
+      redirect_to '/posts', notice: "Usunięto rozdział!"
   end
 
   def new
@@ -27,20 +27,19 @@ class PostsController < ApplicationController
   def update
     @post =Post.find(params[:id])
     if @post.update_attributes(post_params)
-       redirect_to post_path(@post)
+        redirect_to post_path(@post), notice: "Zmieniono rozdział!"
     else
-      render 'edit'
+        render 'edit'
     end
   end
 
   def create
     @post = Post.new(post_params)
     if @post.save
-         redirect_to '/parts/new'
+        redirect_to '/parts/new', notice: "Dodano rozdział!"
     else
-      render 'new'
+        render 'new'
     end
-
   end
 
 

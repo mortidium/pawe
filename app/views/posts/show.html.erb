@@ -1,5 +1,6 @@
 <div class="main">
 
+    <% @ip=request.remote_ip %>
   <div class="content">
 
     <% if current_user && current_user.editor? %>
@@ -23,7 +24,25 @@
     <hr>
       <div><%= strippedtags(@post.content) %></div>
   </div>
-
+    
+    <div>
+    <h3>Czy spodobało Ci się to opowiadanie? Kliknij: 
+        <% @h=0 %>
+        <% @post.likeposts.each do |like| %>
+        <% if like.ip = @ip %>
+        <% @h=1 %>
+        <a href="">
+            <span class="glyphicon glyphicon-heart"></span>
+        </a>
+        <% end %>
+        <% end %>
+        <% if @h=0 %>
+        <a href="<% @post.likeposts.new %>">
+            <span class="glyphicon glyphicon-heart-empty"></span>
+        </a>
+        <% end %>
+     </h3>   
+    </div>
   <div class="col-md-1"></div>
 
   <div class="comments col-md-10">
@@ -37,8 +56,6 @@
     </div>
 
 </div>
-
-
 
 
 

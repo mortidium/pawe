@@ -1,6 +1,6 @@
 <div class="main">
   <div class="create">
-      <div class="przypis">
+     <br><br>
     <%= simple_form_for(@part) do |f| %>
        <div class="col-md-5">
            <%= f.association :tag, label: "Opowiadanie", as: :radio_buttons %>
@@ -10,6 +10,6 @@
          </div>
           <%= f.button :submit, 'Przypisz' %>
     <% end %>
-  </div>
+
 </div>
 </div>

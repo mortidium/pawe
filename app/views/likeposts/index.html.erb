@@ -1,0 +1,14 @@
+<div class="main">
+  <div class="row">
+    <br><br>
+      <% @likeposts.each do |like| %>
+        <div class="col-md-4 col-lg-3 col-sm-6">
+          <div class="post">
+              <h3> <%= like.post.id %> <br> ( <%= like.ip %> )</h3>
+          </div>
+        </div>
+
+    <% end %>
+
+  </div>
+</div>

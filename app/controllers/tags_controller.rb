@@ -13,7 +13,7 @@ class TagsController < ApplicationController
   def destroy
     @tag = Tag.find(params[:id])
     @tag.destroy
-    redirect_to '/tags'
+      redirect_to '/tags', notice: "Usunięto opowiadanie!"
   end
 
   def new
@@ -27,18 +27,18 @@ class TagsController < ApplicationController
   def update
     @tag =Tag.find(params[:id])
     if @tag.update_attributes(tag_params)
-      redirect_to(:action => 'show', :id => @tag.id)
+        redirect_to tag_path(@tag), notice: "Zmieniono opowiadanie."
     else
-      render 'edit'
+        render 'edit', alert: "Wystąpił błąd podczas zmiany opowiadania"
     end
   end
 
   def create
     @tag = Tag.new(tag_params)
     if @tag.save
-      redirect_to '/tags'
+        redirect_to '/tags', notice: "Utworzono opowiadanie!"
     else
-      render 'new'
+        render 'new', alert: "Wystąpił błąd podczas tworzenia opowiadania"
     end
 
   end

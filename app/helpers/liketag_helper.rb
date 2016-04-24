@@ -1,0 +1,2 @@
+module LiketagHelper
+end

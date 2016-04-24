@@ -14,6 +14,10 @@ class PartsController < ApplicationController
     @part = Part.new
   end
 
+    def like
+        @part = Part.liketag.new 
+    end
+    
   def edit
     @part = Part.find(params[:id])
   end
@@ -21,24 +25,24 @@ class PartsController < ApplicationController
     def destroy
     @part = Part.find(params[:id])
     @part.destroy
-    redirect_to(:action => 'index')
+        redirect_to '/tags', notice: "Usunięto."
   end
 
   def update
     @part =Part.find(params[:id])
     if @part.update_attributes(part_params)
-      redirect_to(:action => 'index', :id => @part.id)
+        redirect_to '/parts', notice: "Zmieniono."
     else
-      render 'edit'
+        render 'edit', alert: "Nie udało się zmienić."
     end
   end
 
   def create
     @part = Part.new(part_params)
     if @part.save
-      redirect_to '/tags'
+        redirect_to '/tags', notice: "Przypisano rozdział do opowiadania!"
     else
-      render 'new'
+        render 'new', alert: "Nie udało się przypisać rozdziału do opowiadania."
     end
 
   end
