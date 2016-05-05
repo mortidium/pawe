@@ -1,4 +1,4 @@
 class Likepost < ActiveRecord::Base
-    belongs_to :tag
-    validates :post, uniqueness: {scope: :id}
+    belongs_to :post
+    validates :ip, uniqueness: {scope: :post_id}, presence: true
 end

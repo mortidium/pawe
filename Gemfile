@@ -51,6 +51,8 @@ gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
 
+gem 'acts_as_votable', '~> 0.10.0'
+
 gem 'disqus_rails'
 
 group :development, :test do

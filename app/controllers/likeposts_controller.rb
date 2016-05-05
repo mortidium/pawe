@@ -15,7 +15,7 @@ class LikepostsController < ApplicationController
   def create
       @likepost = Likepost.new(likepost_params)
     if @likepost.save
-        redirect_to post_path(@post), notice: "Dzięki!"
+        redirect_to post_path(likepost_params[:post_id]), notice: "Dzięki!"
     else
         redirect_to :back, alert: "Coś nie pykło"
     end
@@ -23,6 +23,6 @@ class LikepostsController < ApplicationController
 
   private
     def likepost_params
-        params.require(:likepost).permit(:post,:ip => request.remote_ip)
+        params.require(:likepost).permit(:post_id).merge(:ip => request.remote_ip)
   end
 end
