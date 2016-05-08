@@ -27,12 +27,12 @@
     <h4 style="display: inline-block">
         <% if ip_voted_for_post? @post %>
           Polubiono!
-          <span class="glyphicon glyphicon-heart" style="color:red; padding: 0px 10px;" ></span>
+          <span class="glyphicon glyphicon-heart" title="Polubiono" style="color:red; padding: 0px 10px;" ></span>
         <% else %>  
         Czy spodobał Ci się ten rozdział? Polub go:
           <%= link_to likeposts_path(likepost: {post_id: @post.id}), method: :post do %>
           
-            <span class="glyphicon glyphicon-heart-empty" style="color:red; padding: 0px 10px;" ></span>
+            <span class="glyphicon glyphicon-heart-empty" title="Polub" style="color:red; padding: 0px 10px;" ></span>
           <% end %>
         <% end %>
         

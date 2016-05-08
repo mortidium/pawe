@@ -52,6 +52,19 @@
       <%= strippedtags(post.content) %></div>
     </div>
 
+      <div class="likes"  style="display: inline-block;">
+    <h4 style="display: inline-block">
+        <% if ip_voted_for_post? post %>
+          <span class="glyphicon glyphicon-heart" title="Polubiono" style="color:red; padding: 0px 10px;" ></span>
+        <% else %> 
+          <%= link_to liketags_path(likepost: {post_id: post.id}), method: :post do %>
+            <span class="glyphicon glyphicon-heart-empty" title="Polub" style="color:red; padding: 0px 10px;" ></span>
+          <% end %>
+        <% end %>
+        
+     </h4>   
+          <span style="color=#444; display: inline-block; padding-right: 10px;"><%= count_likeposts post %></span>
+    </div>  
    <% end %>
 
       <div>
@@ -62,13 +75,13 @@
        <div class="likes">
     <h4 style="display: inline-block">
         <% if ip_voted_for_tag? @tag %>
-          Polubiono!
-          <span class="glyphicon glyphicon-heart" style="color:red; padding: 0px 10px;" ></span>
+          Polubiono opowiadanie!
+          <span class="glyphicon glyphicon-heart" title="Polubiono" style="color:red; padding: 0px 10px;" ></span>
         <% else %>  
         Czy spodobało Ci się to opowiadanie? Polub je:
           <%= link_to liketags_path(liketag: {tag_id: @tag.id}), method: :post do %>
           
-            <span class="glyphicon glyphicon-heart-empty" style="color:red; padding: 0px 10px;" ></span>
+            <span class="glyphicon glyphicon-heart-empty" title="Polub" style="color:red; padding: 0px 10px;" ></span>
           <% end %>
         <% end %>
         

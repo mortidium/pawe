@@ -11,7 +11,17 @@
             <h1><%= post.title %></h1>
             <p><span class="glyphicon glyphicon-time"></span> Utworzony:  <%= post.created_at.to_date %></p>
             <hr>
-            <img class="img-responsive" src="<%= post.image %>" alt="">
+            <div class="likes">
+    <h4 style="display: inline-block">
+        <% if ip_voted_for_post? post %>
+          <span class="glyphicon glyphicon-heart" title="Polubiono" style="color:red; padding: 0px 10px;" ></span>
+        <% else %>  
+            <span class="glyphicon glyphicon-heart-empty" title="Przeczytaj i polub" style="color:red; padding: 0px 10px;" ></span>
+        <% end %>
+        
+     </h4>   
+        <span style="color=#444; display: inline-block;"> Liczba polubień:  <%= count_likeposts post %></span>
+    </div>  
             <hr>
             <p><a class="btn btn-success btn-lg" href="<%= post_path(post) %>">Zobacz
               <span class="glyphicon glyphicon-chevron-right"></span></a></p>
