@@ -57,7 +57,7 @@
         <% if ip_voted_for_post? post %>
           <span class="glyphicon glyphicon-heart" title="Polubiono" style="color:red; padding: 0px 10px;" ></span>
         <% else %> 
-          <%= link_to liketags_path(likepost: {post_id: post.id}), method: :post do %>
+          <%= link_to likeposts_path(likepost: {post_id: post.id}), method: :post do %>
             <span class="glyphicon glyphicon-heart-empty" title="Polub" style="color:red; padding: 0px 10px;" ></span>
           <% end %>
         <% end %>
