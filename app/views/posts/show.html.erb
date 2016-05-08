@@ -1,6 +1,5 @@
 <div class="main">
 
-    <% @ip=request.remote_ip %>
   <div class="content">
 
     <% if current_user && current_user.editor? %>
@@ -23,19 +22,26 @@
     <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= @post.created_at.to_date %></p>
     <hr>
       <div><%= strippedtags(@post.content) %></div>
-  </div>
-    
-    <div>
-    <h3>Czy spodobało Ci się to opowiadanie? Kliknij:
-        <% if ip_voted_for? @post %>
-            <span class="glyphicon glyphicon-heart"></span>
-        <% else %>       
-        <%= link_to likeposts_path(likepost: {post_id: @post.id}), method: :post do %>
-            <span class="glyphicon glyphicon-heart-empty"></span>
+      
+    <div class="likes">
+    <h4 style="display: inline-block">
+        <% if ip_voted_for_post? @post %>
+          Polubiono!
+          <span class="glyphicon glyphicon-heart" style="color:red; padding: 0px 10px;" ></span>
+        <% else %>  
+        Czy spodobał Ci się ten rozdział? Polub go:
+          <%= link_to likeposts_path(likepost: {post_id: @post.id}), method: :post do %>
+          
+            <span class="glyphicon glyphicon-heart-empty" style="color:red; padding: 0px 10px;" ></span>
           <% end %>
         <% end %>
-     </h3>   
-    </div>
+        
+     </h4>   
+        <span style="color=#444; display: inline-block;"> Liczba polubień:  <%= count_likeposts @post %></span>
+    </div>  
+  </div>
+    
+    
   <div class="col-md-1"></div>
 
   <div class="comments col-md-10">

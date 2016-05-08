@@ -1,4 +1,4 @@
 class Liketag < ActiveRecord::Base
     belongs_to :tag
- validates :tag, uniqueness: {scope: :ip}
+    validates :ip, uniqueness: {scope: :tag_id}, presence: true
 end

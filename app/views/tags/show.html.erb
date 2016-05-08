@@ -59,9 +59,30 @@
       
       </div> 
 
+       <div class="likes">
+    <h4 style="display: inline-block">
+        <% if ip_voted_for_tag? @tag %>
+          Polubiono!
+          <span class="glyphicon glyphicon-heart" style="color:red; padding: 0px 10px;" ></span>
+        <% else %>  
+        Czy spodobało Ci się to opowiadanie? Polub je:
+          <%= link_to liketags_path(liketag: {tag_id: @tag.id}), method: :post do %>
+          
+            <span class="glyphicon glyphicon-heart-empty" style="color:red; padding: 0px 10px;" ></span>
+          <% end %>
+        <% end %>
+        
+     </h4>   
+        <span style="color=#444; display: inline-block;"> Liczba polubień:  <%= count_liketags @tag %></span>
+    </div>  
+      
   </div>
 
   <br>
+    
+   
+     
+    
   <div class="wstecz">
     <a class="btn btn-success btn-lg" href="../tags"><span class="glyphicon glyphicon-chevron-left"></span> Wróć do
       wszystkich opowiadań</a></div>

@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
     has_many :parts, :dependent => :destroy
     has_many :tags, through: :parts
     has_many :likeposts, :dependent => :destroy
-    acts_as_votable
+
 #    def stripped_content
 #        strippedtags(self.content)
 #    end
