@@ -3,8 +3,8 @@ module ApplicationHelper
 
     
   def strippedtags(content)
-    tags = %w(a acronym b strong i em li ul ol h1 h2 h3 h4 h5 h6 blockquote u img br cite sub sup ins p)
-    sanitize(content, tags: tags, attributes: %w(href title))
+    tags = %w(a acronym b strong i em li ul ol h1 h2 h3 h4 h5 h6 blockquote u img br cite sub sup ins p span)
+    sanitize(content, tags: tags, attributes: %w(href class title))
   end
     
 end

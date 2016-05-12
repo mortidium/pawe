@@ -5,7 +5,7 @@ before_action :require_user, only: [:index, :show]
     <%= simple_form_for(@post) do |f| %>
 
         <%= f.input :title, label: "Tytuł:" %> <br>
-        <%= f.input :content, as: :wysihtml5, label: "Treść:" %><br>
+        <%= f.input :content, as: :wysihtml5, wysihtml5: { 'toolbar': {'color': true,  'image': false} }, label: "Treść:" %><br>
         <%= f.input :description, label: "Krótki opis:" %><br>
         <%= f.input :image, label: "Link do obrazu" %><br>
         <%= f.button :submit, 'Dodaj rozdział' %>
