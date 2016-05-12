@@ -4,7 +4,7 @@ module LikepostHelper
     end
     
     def count_likeposts (post)
-        Likepost.count(post_id: post.id)
+        Likepost.where(post_id: post.id).count
     end
     
 end

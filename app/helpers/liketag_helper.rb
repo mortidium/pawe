@@ -4,6 +4,6 @@ module LiketagHelper
     end
     
      def count_liketags (tag)
-        Liketag.count(tag_id: tag.id)
+         Liketag.where(tag_id: tag.id).count
     end
 end
