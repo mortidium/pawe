@@ -15,7 +15,7 @@ class LikepostsController < ApplicationController
   def create
       @likepost = Likepost.new(likepost_params)
     if @likepost.save
-        redirect_to post_path(likepost_params[:post_id]), notice: "Dzięki!"
+        redirect_to :back, notice: "Dzięki!"
     else
         redirect_to :back, alert: "Coś nie pykło"
     end
