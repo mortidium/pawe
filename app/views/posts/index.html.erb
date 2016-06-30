@@ -5,14 +5,13 @@
       Najnowsze wpisy
     </h1>
   
-      <% @posts.each do |post| %>
+      <% posts.each do |post| %>
         <div class="col-md-6">
           <div class="post">
             <h1><%= post.title %></h1>
             <p><span class="glyphicon glyphicon-time"></span> Utworzony:  <%= post.created_at.to_date %></p>
             <hr>
               
-             
               <img src="<%= post.image %>" alt="">
               
               
@@ -36,5 +35,5 @@
     <% end %>
                  
   </div>
-    <div class="pag"> <%= will_paginate @posts,:previous_label => '< Poprzednia strona', :next_label => 'Następna strona >',renderer: BootstrapPagination::Rails %> </div>
+    <div class="pag"> <%= will_paginate posts,:previous_label => '< Poprzednia strona', :next_label => 'Następna strona >',renderer: BootstrapPagination::Rails %> </div>
 </div>

@@ -3,7 +3,7 @@
   <div class="content">
 
     <% if current_user && current_user.editor? %>
-      <% if @post.tags.count == 0 %>
+      <% if post.tags.count == 0 %>
       <div class="alert alert-dismissible alert-danger">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <strong><br>Pamiętaj, żeby dodać rozdział do opowiadania!</strong> <a href=../../parts/new class="alert-link">Przypisz teraz klikając tu: <span class="glyphicon glyphicon-link"></span></a><br><br>
@@ -11,33 +11,33 @@
       <% end %>   
       <div class="btn-group">
             <a class="btn btn-danger" <%= link_to "Usuń rozdział", @post, method: :delete, data: {confirm: 'Czy na pewno usunąć rozdział?'} %></a>
-            <a class="btn btn-info" <%= link_to "Edytuj rozdział", [:edit, @post] %></a>
+            <a class="btn btn-info" <%= link_to "Edytuj rozdział", [:edit, post] %></a>
  
-        <% if @post.tags.count == 0 %>
+        <% if post.tags.count == 0 %>
             <a class="btn btn-success" href="../../parts/new">Przypisz do opowiadania</a>
         <% end %>    
       </div>
     <% end %>
-    <h1 class="title"><%= @post.title %></h1>
-    <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= @post.created_at.to_date %></p>
+    <h1 class="title"><%= post.title %></h1>
+    <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= post.created_at.to_date %></p>
     <hr>
-      <div><%= strippedtags(@post.content) %></div>
+      <div><%= strippedtags(post.content) %></div>
       
     <div class="likes">
     <h4 style="display: inline-block">
-        <% if ip_voted_for_post? @post %>
+        <% if ip_voted_for_post? post %>
           Polubiono!
           <span class="glyphicon glyphicon-heart" title="Polubiono" style="color:red; padding: 0px 10px;" ></span>
         <% else %>  
         Czy spodobał Ci się ten rozdział? Polub go:
-          <%= link_to likeposts_path(likepost: {post_id: @post.id}), method: :post do %>
+          <%= link_to likeposts_path(likepost: {post_id: post.id}), method: :post do %>
           
             <span class="glyphicon glyphicon-heart-empty" title="Polub" style="color:red; padding: 0px 10px;" ></span>
           <% end %>
         <% end %>
         
      </h4>   
-        <span style="color=#444; display: inline-block;"> Liczba polubień:  <%= count_likeposts @post %></span>
+        <span style="color=#444; display: inline-block;"> Liczba polubień:  <%= count_likeposts post %></span>
     </div>  
   </div>
     
@@ -49,7 +49,7 @@
   </div>
   <br>
   <div class="wstecz">
-      <% @post.tags.each do |tag| %>
+      <% post.tags.each do |tag| %>
 <a class="btn btn-success btn-lg" href="<%= tag_path(tag)%>">Pokaż całe opowiadanie "<%= tag.title%>" > </a>
     <% end %>
     </div>

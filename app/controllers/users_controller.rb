@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
     before_action :require_editor, only: [:index]
-  def new
+
+    
+  def index
+      @q = User.ransack(params[:q])
+      @users = @q.result(distinct: true)
+  end
+    
+def new
     @user = User.new
   end
 
@@ -14,12 +21,20 @@ class UsersController < ApplicationController
     end
   end
 
-   
+    def edit
+        @user=User.find(params[:id])    
+    end
+    
+    def update
+        @user=User.find(params[:id])
+        if @user.update_attributes(user_params)
+            redirect_to users_path
+        else
+            render 'edit'
+        end
+    end
 
-  def index
-      @users = User.all
-      
-  end
+    
 
   private
   def user_params

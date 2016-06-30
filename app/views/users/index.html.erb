@@ -8,9 +8,9 @@
       <table class="userzy table table-striped table-hover ">
           <thead>
     <tr>
-        <th><h3>Imię i nazwisko</h3></th>
-      <th><h3>Email</h3></th>
-      <th><h3>Rola</h3></th>
+        <th><h3><%= sort_link(@q, :last_name, 'Imię i Nazwisko', default_order: :asc)  %></h3></th>
+        <th><h3><%= sort_link(@q, :email, 'Email')  %></h3></th>
+    <th><h3><%= sort_link(@q, :role, 'Rola') %> </h3></th>
     </tr>
   </thead>
           <tbody>
@@ -57,4 +57,10 @@
       
  </div>
     
-</div>
+<h2>Wyszukaj osoby:</h2>
+<%= search_form_for @q do |f| %>
+<%= f.label "Imię, nazwisko lub email zawierające:"%>
+  <%= f.search_field :first_name_or_last_name_or_email_cont %>
+  <%= f.submit %>
+
+<% end %>

@@ -2,7 +2,7 @@ before_action :require_user, only: [:index, :show]
 <div class="edit">
   <div class="main">
     <br><br>
-    <%= simple_form_for(@post) do |f| %>
+    <%= simple_form_for(post) do |f| %>
 
         <%= f.input :title, label: "Tytuł:" %> <br>
         <%= f.input :content, as: :wysihtml5, wysihtml5: { 'toolbar': {'color': true,  'image': false} }, label: "Treść:" %><br>

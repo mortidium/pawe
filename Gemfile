@@ -32,6 +32,7 @@ gem 'simple_form'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'bootstrap-wysihtml5-rails'
 
+gem 'decent_exposure', '3.0.0.beta2'
 
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
@@ -52,6 +53,8 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
 
 # gem 'acts_as_votable', '~> 0.10.0'
+
+gem 'ransack'
 
 gem 'disqus_rails'
 

@@ -1,0 +1,13 @@
+<div class="main">
+  <div class="edit">
+      <br><br>
+      <%= simple_form_for(@user) do |f| %>
+
+      <%= f.input :first_name, label: "Imię:" %> <br>
+      <%= f.input :last_name, label: "Nazwisko:" %>
+      <%= f.input :email, label: "Email:" %>
+        <%= f.button :submit, 'Aktualizuj' %>
+    <% end %>
+  </div>
+
+</div>

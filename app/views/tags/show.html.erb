@@ -4,16 +4,16 @@
 
     <% if current_user && current_user.editor? %>
         <div class="btn-group">
-          <a class="btn btn-danger" <%= link_to "Usuń opowiadanie", @tag, method: :delete, data: {confirm: 'Czy na pewno usunąć opowiadanie?'} %></a>
-            <a class="btn btn-info" <%= link_to "Edytuj opowiadanie", [:edit, @tag] %></a>
+            <a class="btn btn-danger" <%= link_to "Usuń opowiadanie", one_tag, method: :delete, data: {confirm: 'Czy na pewno usunąć opowiadanie?'} %></a>
+            <a class="btn btn-info" <%= link_to "Edytuj opowiadanie", [:edit, one_tag] %></a>
           <a class="btn btn-success" <%= link_to "Nowy rozdział", new_post_path %></a>
             <a class="btn btn-success" <%= link_to "Przypisz istniejący rozdział", new_part_path %></a>
             
         </div>
     <% end %>
 
-    <h1 class="title"><%= @tag.title %></h1>
-    <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= @tag.created_at.to_date %></p>
+      <h1 class="title"><%= one_tag.title %></h1>
+      <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= one_tag.created_at.to_date %></p>
 
       
 <table class="table table-striped table-hover" style="border: 3px solid #dfd7ca;background-color: white;">
@@ -23,7 +23,7 @@
     </tr>
   </thead>
   <tbody>
-      <% @posts.each do |post| %>
+      <% posts.each do |post| %>
     <tr>
         <td><a href="#<%= post.id %>"><%= post.title%></a></td> 
     </tr>
@@ -31,12 +31,12 @@
   </tbody>
 </table>  
       
-       <%= will_paginate @posts, :previous_label => '< Poprzednie rozdziały', :next_label => 'Następne rozdziały >', renderer: BootstrapPagination::Rails %>
+       <%= will_paginate posts, :previous_label => '< Poprzednie rozdziały', :next_label => 'Następne rozdziały >', renderer: BootstrapPagination::Rails %>
       
       <br>
       
       
-    <% @posts.each do |post| %>
+    <% posts.each do |post| %>
 
       <div class="post">
           <a style="text-decoration: none; color:#333;" name="<%= post.id %>"></a><br><br>
@@ -68,25 +68,25 @@
    <% end %>
 
       <div>
-      <%= will_paginate @posts, :previous_label => '< Poprzednia strona', :next_label => 'Następna strona >',renderer: BootstrapPagination::Rails %>
+      <%= will_paginate posts, :previous_label => '< Poprzednia strona', :next_label => 'Następna strona >',renderer: BootstrapPagination::Rails %>
       
       </div> 
 
        <div class="likes">
     <h4 style="display: inline-block">
-        <% if ip_voted_for_tag? @tag %>
+        <% if ip_voted_for_tag? one_tag %>
           Polubiono opowiadanie!
           <span class="glyphicon glyphicon-heart" title="Polubiono" style="color:red; padding: 0px 10px;" ></span>
         <% else %>  
         Czy spodobało Ci się to opowiadanie? Polub je:
-          <%= link_to liketags_path(liketag: {tag_id: @tag.id}), method: :post do %>
+        <%= link_to liketags_path(liketag: {tag_id: one_tag.id}), method: :post do %>
           
             <span class="glyphicon glyphicon-heart-empty" title="Polub" style="color:red; padding: 0px 10px;" ></span>
           <% end %>
         <% end %>
         
      </h4>   
-        <span style="color=#444; display: inline-block;"> Liczba polubień:  <%= count_liketags @tag %></span>
+           <span style="color=#444; display: inline-block;"> Liczba polubień:  <%= count_liketags one_tag %></span>
     </div>  
       
   </div>
