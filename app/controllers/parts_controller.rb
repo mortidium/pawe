@@ -1,7 +1,7 @@
 class PartsController < ApplicationController
 
     before_action :require_editor, only: [:new, :edit, :show, :index]
-    
+
   def index
     @parts = Part.order(created_at: :desc).all
   end
@@ -9,19 +9,19 @@ class PartsController < ApplicationController
     def tags
         @tags = Part.tag.all
     end
-    
+
   def new
     @part = Part.new
   end
 
     def like
-        @part = Part.liketag.new 
+        @part = Part.liketag.new
     end
-    
+
   def edit
     @part = Part.find(params[:id])
   end
-    
+
     def destroy
     @part = Part.find(params[:id])
     @part.destroy
@@ -40,7 +40,7 @@ class PartsController < ApplicationController
   def create
     @part = Part.new(part_params)
     if @part.save
-        redirect_to '/tags', notice: "Przypisano rozdział do opowiadania!"
+        redirect_to post_path(@part.post_id), notice: "Przypisano rozdział do opowiadania!"
     else
         render 'new', alert: "Nie udało się przypisać rozdziału do opowiadania."
     end
