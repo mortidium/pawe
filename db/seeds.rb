@@ -8,3 +8,6 @@
 marta = User.create(first_name: 'Marta', last_name: 'Mościcka', email: 'martamoscicka1@gmail.com', password: 'eldarion14', password_confirmation: 'eldarion14', role: 'editor')
 pawel = User.create(first_name: 'Paweł', last_name: 'Maniciak', email: 'paweljanm@gmail.com', password: '91RnJo59', password_confirmation: '91RnJo59', role: 'editor')
 julian = User.create(first_name: 'Julian', last_name: 'Jones', email: 'julian@email.com', password: 'Julian1', password_confirmation: 'Julian1')
+
+tag1 = Tag.create(title: 'Pierwsze opowiadanie')
+tag2 = Tag.create(title: 'Drugie opowiadanie')
