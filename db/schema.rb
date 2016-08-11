@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418153254) do
+ActiveRecord::Schema.define(version: 20160811170503) do
 
   create_table "likeposts", force: :cascade do |t|
     t.integer  "post_id"
@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 20160418153254) do
     t.text     "content"
     t.string   "image"
     t.string   "description"
-    t.integer  "tag_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "tag_id"
   end
 
   add_index "posts", ["tag_id"], name: "index_posts_on_tag_id"

@@ -1,9 +1,9 @@
 <div class="main">
   <div class="edit">
-      <br><br>
       <%= simple_form_for(one_tag) do |f| %>
 
         <%= f.input :title, label: "Tytuł opowiadania:" %> <br>
+        <img src="<%= one_tag.image %>" alt="">
         <%= f.input :image, label: "Link do obrazu:" %>
         <%= f.button :submit, 'Aktualizuj opowiadanie' %>
     <% end %>

@@ -1,12 +1,11 @@
 class Post < ActiveRecord::Base
-    has_many :parts, :dependent => :destroy
-    has_many :tags, through: :parts
+    belongs_to :tag
     has_many :likeposts, :dependent => :destroy
 
 #    def stripped_content
 #        strippedtags(self.content)
 #    end
-    
+
 #  def self.tagged_with(title)
 #    Tag.find_by_name!(title).posts
 #  end
@@ -31,5 +30,5 @@ class Post < ActiveRecord::Base
 #            length: {minimum: 5}
 #  validates_attachment :image,
 #                       content_type: {content_type: ["image/jpeg", "image/gif", "image/png"]}
-    
+
 end

@@ -1,16 +1,16 @@
-before_action :require_user, only: [:index, :show]
-<div class="edit">
-  <div class="main">
-    <br><br>
+<div class="main">
+  <div class="edit">
     <%= simple_form_for(post) do |f| %>
 
         <%= f.input :title, label: "Tytuł:" %> <br>
         <%= f.input :content, as: :wysihtml5, wysihtml5: { 'toolbar': {'color': true,  'image': false} }, label: "Treść:" %><br>
         <%= f.input :description, label: "Krótki opis:" %><br>
-        <%= f.input :image, label: "Link do obrazu" %><br>
+        <img src="<%= post.image %>" alt="">
+        <%= f.input :image, label: "Link do obrazu:" %><br>
+        <%= f.input :tag_id, collection: tags_select, as: :select, label: "Opowiadanie:" %><br/><br/>
         <%= f.button :submit, 'Dodaj rozdział' %>
     <% end %>
-  
+
     </div>
 
 </div>
