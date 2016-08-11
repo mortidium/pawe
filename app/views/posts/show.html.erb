@@ -3,7 +3,7 @@
   <div class="content">
 
     <% if current_user && current_user.editor? %>
-      <% if post.tags.count == 0 %>
+      <% if post.tag.nil? %>
       <div class="alert alert-dismissible alert-danger">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <strong><br>Pamiętaj, żeby dodać rozdział do opowiadania!</strong> <a href=../../parts/new class="alert-link">Przypisz teraz klikając tu: <span class="glyphicon glyphicon-link"></span></a><br><br>
@@ -13,12 +13,12 @@
             <a class="btn btn-danger" <%= link_to "Usuń rozdział", @post, method: :delete, data: {confirm: 'Czy na pewno usunąć rozdział?'} %></a>
             <a class="btn btn-info" <%= link_to "Edytuj rozdział", [:edit, post] %></a>
 
-        <% if post.tags.count == 0 %>
+        <% if post.tag.nil? %>
             <a class="btn btn-success" href="../../parts/new">Przypisz do opowiadania</a>
-
         <% end %>
+
       </div>
-    <% end %
+    <% end %>
 
     <h1 class="title"><%= post.title %></h1>
     <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= post.created_at.to_date %></p>
@@ -48,8 +48,8 @@
 
   <br>
   <div class="wstecz">
-      <% post.tags.each do |tag| %>
-<a class="btn btn-success btn-lg" href="<%= tag_path(tag)%>">Pokaż całe opowiadanie "<%= tag.title%>" > </a>
+      <% if post.tag.present? %>
+<a class="btn btn-success btn-lg" href="<%= tag_path(post.tag)%>">Pokaż całe opowiadanie "<%= post.tag.title%>" > </a>
     <% end %>
     </div>
 

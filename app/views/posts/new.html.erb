@@ -1,17 +1,12 @@
 <div class="main">
   <div class="create">
-      <br><br>
     <%= simple_form_for post do |f| %>
 
         <%= f.input :title, label: "Tytuł:" %> <br>
         <%= f.input :content, as: :wysihtml5, wysihtml5: { 'toolbar': {'color': true,  'image': false} }, label: "Treść:" %>
         <%= f.input :description, label: "Krótki opis:" %>
-        <%= f.input :image, as: :string, label: "Link do obrazu" %>
-
-          <%=f.fields_for Part.new do |k| %>
-            <%= k.select :tag_id, Tag.where.not(id:post.tag_ids).map{|tag| [tag.title, tag.id]} %>
-            <% end %>
-
+        <%= f.input :image, as: :string, label: "Link do obrazu:" %>
+        <%= f.input :tag_id, collection: tags_select, as: :select, label: "Opowiadanie:"  %>  <br><br>
       <%= f.button :submit, 'Dodaj rozdział' %>
     <% end %>
   </div>

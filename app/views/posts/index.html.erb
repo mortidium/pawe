@@ -4,28 +4,27 @@
     <h1 class="page-header">
       Najnowsze wpisy
     </h1>
-  
+
       <% posts.each do |post| %>
         <div class="col-md-6">
           <div class="post">
             <h1><%= post.title %></h1>
             <p><span class="glyphicon glyphicon-time"></span> Utworzony:  <%= post.created_at.to_date %></p>
             <hr>
-              
+
               <img src="<%= post.image %>" alt="">
-              
               
             <div class="likes">
     <h4 style="display: inline-block">
         <% if ip_voted_for_post? post %>
           <span class="glyphicon glyphicon-heart" title="Polubiono" style="color:red; padding: 0px 10px;" ></span>
-        <% else %>  
+        <% else %>
             <span class="glyphicon glyphicon-heart-empty" title="Przeczytaj i polub" style="color:red; padding: 0px 10px;" ></span>
         <% end %>
-        
-     </h4>   
+
+     </h4>
         <span style="color=#444; display: inline-block;"> Liczba polubień:  <%= count_likeposts post %></span>
-    </div>  
+    </div>
             <hr>
             <p><a class="btn btn-success btn-lg" href="<%= post_path(post) %>">Zobacz
               <span class="glyphicon glyphicon-chevron-right"></span></a></p>
@@ -33,7 +32,7 @@
         </div>
 
     <% end %>
-                 
+
   </div>
     <div class="pag"> <%= will_paginate posts,:previous_label => '< Poprzednia strona', :next_label => 'Następna strona >',renderer: BootstrapPagination::Rails %> </div>
 </div>
