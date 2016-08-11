@@ -4,9 +4,13 @@
      <% posts_select.each do |part| %>
 
         <div class="col-md-4 col-lg-4 col-sm-6">
-          <div class="post">
+          <div class="post" style="height:280px; border:1px black solid;">
             <h3>Rozdział: <%= part.title %> </h3>
-            <h4> <%= part.tag.title %> </h4>
+            <% if part.tag.present? %>
+              <h4> <%= part.tag.title %> </h4>
+            <% else %>
+              <p style="color:red"> Nieprzypisany</p>
+            <% end %>
             <p><span class="glyphicon glyphicon-time"></span> <%= part.created_at.to_date %></p>
             <a class="btn btn-info" <%= link_to "Edytuj", [:edit, part] %></a>
             <br>

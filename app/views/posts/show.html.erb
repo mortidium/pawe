@@ -6,7 +6,14 @@
       <% if post.tag.nil? %>
       <div class="alert alert-dismissible alert-danger">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <strong><br>Pamiętaj, żeby dodać rozdział do opowiadania!</strong> <a href=../../parts/new class="alert-link">Przypisz teraz klikając tu: <span class="glyphicon glyphicon-link"></span></a><br><br>
+
+
+  <strong><br>Pamiętaj, żeby dodać rozdział do opowiadania! Przypisz teraz klikając tu:
+    <%= link_to [:edit, post], class: 'alert-link' do %>
+        <span class="glyphicon glyphicon-link"></span>
+    <% end %>
+  </strong>
+
 </div>
       <% end %>
       <div class="btn-group">
