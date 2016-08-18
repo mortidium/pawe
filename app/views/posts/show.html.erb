@@ -27,7 +27,7 @@
       </div>
     <% end %>
 
-    <h1 class="title"><%= post.title %></h1>
+    <h1 class="title"><%= post.title %></h1> <h2><%= post.description %> </h2>
     <p class="times"><span class="glyphicon glyphicon-time"></span>  <%= post.created_at.to_date %></p>
     <hr>
       <div><%= strippedtags(post.content) %></div>

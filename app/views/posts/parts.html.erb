@@ -1,24 +1,28 @@
 <div class="main">
-  <div class="row">
 
-     <% posts_select.each do |part| %>
+    <% posts_select.each_slice(3) do |rows| %>
+      <div class="row">
+        <% rows.each do |part| %>
 
-        <div class="col-md-4 col-lg-4 col-sm-6">
-          <div class="post" style="height:280px; border:1px black solid;">
-            <h3>Rozdział: <%= part.title %> </h3>
-            <% if part.tag.present? %>
-              <h4> <%= part.tag.title %> </h4>
-            <% else %>
-              <p style="color:red"> Nieprzypisany</p>
-            <% end %>
-            <p><span class="glyphicon glyphicon-time"></span> <%= part.created_at.to_date %></p>
-            <a class="btn btn-info" <%= link_to "Edytuj", [:edit, part] %></a>
-            <br>
-            <%= part.description %>
+          <div class="col-md-4 col-lg-4 col-sm-6">
+            <div class="post" style="border:1px black solid;">
+              <h3>Rozdział: <%= part.title %> </h3>
+              <% if part.tag.present? %>
+                <h4> <%= part.tag.title %> </h4>
+              <% else %>
+                <p style="color:red"> Nieprzypisany</p>
+              <% end %>
+              <%= part.description %>
+              <p><span class="glyphicon glyphicon-time"></span> <%= part.created_at.to_date %></p>
+              <%= link_to "Edytuj", [:edit, part], class: "btn btn-info" %>
+              <%= link_to "Pokaż rozdział", post_path(part), class: "btn btn-info" %>
+              <br>
 
+            </div>
           </div>
-        </div>
 
+        <% end %>
+      </div>
     <% end %>
-  </div>
+
 </div>

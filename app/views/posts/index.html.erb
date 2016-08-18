@@ -1,18 +1,19 @@
 <div class="main">
-  <div class="row">
-
     <h1 class="page-header">
       Najnowsze wpisy
     </h1>
 
-      <% posts.each do |post| %>
+    <% posts.each_slice(2) do |rows| %>
+      <div class="row">
+        <% rows.each do |post| %>
+
         <div class="col-md-6">
-          <div class="post" style="height:425px;">
+          <div class="post">
             <h1><%= post.title %></h1>
             <p><span class="glyphicon glyphicon-time"></span> Utworzony:  <%= post.created_at.to_date %></p>
             <hr>
 
-              <img src="<%= post.image %>" alt="">
+              <img style="width: -moz-available;" src="<%= post.image %>" alt="">
 
             <div class="likes">
     <h4 style="display: inline-block">
@@ -31,8 +32,9 @@
           </div>
         </div>
 
+      <% end %>
+    </div>
     <% end %>
 
-  </div>
     <div class="pag"> <%= will_paginate posts,:previous_label => '< Poprzednia strona', :next_label => 'Następna strona >',renderer: BootstrapPagination::Rails %> </div>
 </div>
