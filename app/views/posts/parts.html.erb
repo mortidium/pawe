@@ -14,7 +14,9 @@
               <% end %>
               <%= part.description %>
               <p><span class="glyphicon glyphicon-time"></span> <%= part.created_at.to_date %></p>
-              <%= link_to "Edytuj", [:edit, part], class: "btn btn-info" %>
+              <%= link_to [:edit, part], class: "btn btn-info"  do %>
+                EDYTUJ <% if part.tag.nil? %> lub przypisz <% end %>
+              <% end %>
               <%= link_to "Pokaż rozdział", post_path(part), class: "btn btn-info" %>
               <br>
 

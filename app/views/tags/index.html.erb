@@ -5,7 +5,9 @@
       Wszystkie opowiadania
     </h1>
 
-    <% tag_list.each do |tag| %>
+    <% tag_list.each_slice(2) do |rows| %>
+      <div class="row">
+        <% rows.each do |tag| %>
         <div class="col-md-6">
           <div class="post">
             <h1><%= tag.title %></h1>
@@ -29,8 +31,10 @@
           </div>
         </div>
 
-    <% end %>
+        <% end %>
       </div>
+    <% end %>
+
     <div class= "pag">
       <%= will_paginate tag_list, :previous_label => '< Poprzednia strona', :next_label => 'Następna strona >',renderer: BootstrapPagination::Rails %>
 
